@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" hre="dist/brand-site.css"
+	<link rel="stylesheet" href="https://www.ft.com/__assets/creatives/paid-post/brand-content.css" />
 	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-grid@^4.3.3,o-header@^7.0.4,o-footer@^6.0.2,o-typography@^5.1.1,o-colors@^4.1.1,o-tooltip@^2.2.3,o-buttons">
 	<script id="cuts-the-mustard">
 		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
@@ -13,9 +13,47 @@
 			// We're doing it early in the head to avoid a flash of unstyled content
 			document.documentElement.className = document.documentElement.className.replace(/core/g, 'enhanced');
 		}
-	</script>		
+	</script>
+	<!-- BEGIN Krux ControlTag for "FT Branded Content" -->
+	<script id="krux-pixel" class="kxct" data-id="scaebh2qr" data-timing="async" data-version="3.0" type="text/javascript">
+		window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);
+		(function(){
+		var k=document.createElement('script');k.type='text/javascript';k.async=true;
+		k.src=(location.protocol==='https:'?'https:':'http:')+'//cdn.krxd.net/controltag/scaebh2qr.js';
+		var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s);
+		}());
+	</script>
+	<!-- END Krux ControlTag -->
+
+	<!-- Facebook Pixel Code -->
+	<script id="facebook-pixel">
+		!function(f,b,e,v,n,t,s)
+		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+		n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+		if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+		n.queue=[];t=b.createElement(e);t.async=!0;
+		t.src=v;s=b.getElementsByTagName(e)[0];
+		s.parentNode.insertBefore(t,s)}(window, document,'script',
+		'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '1955226934710639');
+		fbq('track', 'PageView');
+	</script>
+	<noscript>
+		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1955226934710639&ev=PageView&noscript=1" />
+	</noscript>
+	<!-- End Facebook Pixel Code -->
 	
-		
+	<!-- Twitter universal website tag code -->
+	<script id="twitter-pixel">
+		!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+		},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+		a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+		// Insert Twitter Pixel ID and Standard Event data below
+		twq('init','nxgf1');
+		twq('track','PageView');
+	</script>
+	<!-- End Twitter universal website tag code -->
+	
 	<title>[[PAGE TITLE]]</title>
 	<meta name="parent" content="[[PARENT ARTICLE]]" />
 </head>
@@ -188,8 +226,11 @@
 		</div>
 	</div>
 	<!-- End of FT Menu -->
-
-	<script src="dist/brand-site.js"></script>
+	<script async src="https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-viewport@^3.1.6,o-grid@^4.3.3,o-header@^7.0.4,o-footer@^6.0.2,o-typography@^5.1.1,o-colors@^4.1.1,o-tooltip@^2.2.3,o-tracking,o-buttons"></script>
+	<script src="https://www.ft.com/__assets/creatives/paid-post/brand-content.js"></script>
+	<script id="origami-js">
+		window.ft.init();
+	</script>
 	<noscript>
 		<img src="https://spoor-api.ft.com/px.gif?data=%7B%22category%22:%22page%22,%20%22action%22:%22view%22,%20%22system%22:%7B%22apiKey%22:%22qUb9maKfKbtpRsdp0p2J7uWxRPGJEP%22,%22source%22:%22o-tracking%22,%22version%22:%221.0.0%22%7D,%22context%22:%7B%22product%22:%22paid-post%22,%22content%22:%7B%22asset_type%22:%22page%22%7D%7D%7D">
 	</noscript>

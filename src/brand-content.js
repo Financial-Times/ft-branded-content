@@ -1,4 +1,13 @@
 'use strict'
+
+require('./brand-content.css');
+
+// Initialise Events
+var ATTENTION_INTERVAL = 15000;
+var ATTENTION_EVENTS = ['load', 'click', 'focus', 'scroll', 'mousemove', 'touchstart', 'touchend', 'touchcancel', 'touchleave'];
+var UNATTENTION_EVENTS = ['blur'];
+var EXIT_EVENTS = ['beforeunload', 'unload', 'pagehide'];
+
 function throttle(func, wait) {
 	let last, timer;
 	
@@ -200,7 +209,7 @@ function fireBeacon (contextSource, percentage) {
 		category: 'page',
 		meta: {
 			percentagesViewed: percentage,
-			attention: attention.get()
+			attention: window.attention.get()
 		},
 		context: {
 			product: 'next',
@@ -253,11 +262,10 @@ function scrollDepthInit(contextSource, { percentages = [25, 50, 75, 100], selec
 		}
 };
 
-
-/** EXECUTED IN THE GLOBAL SCOPE ON PAGE \/ */
-
 // Load origami components and initialise things
-(function(src) {	
+function init() {
+	window.attention = new Attention();
+
 	// Need to make some changes to the DOM before initialising the
 	// origami components so we fire off the o.DOMContentLoaded when
 	// we're ready.
@@ -266,57 +274,32 @@ function scrollDepthInit(contextSource, { percentages = [25, 50, 75, 100], selec
 			document.getElementById('paid-post-tooltip').setAttribute('data-o-tooltip-position', 'below');
 		}
 	});
-	
-	// Need to define cutsTheMustard on the calling page
-	if (cutsTheMustard) {
-		const o = document.createElement('script');
-		o.async = o.defer = true;
-		o.src = src;
-		o.id = "origami-js";
-		const s = document.getElementsByTagName('script')[0];
-		if (o.hasOwnProperty('onreadystatechange')) {
-			o.onreadystatechange = function() {
-				if (o.readyState === "loaded") {
-					document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-					stickyOnScroll();
-					oTrackinginit();
-				}
-			};
-		} else {
-			o.onload = function() {
-				document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-				stickyOnScroll();
+
+	const intervalId = setInterval(function() {
+		if(window.Origami) {
+			clearInterval(intervalId);
+			clearTimeout(timeoutId);
+			document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+			if(cutsTheMustard) {
 				oTrackinginit();
 			}
+			else {
+				// Add fallback if browsers don't cut the mustard -->
+				var img = new Image();
+				img.src = 'https://spoor-api.ft.com/px.gif?data=%7B%22category%22:%22page%22,%20%22action%22:%22view%22,%20%22system%22:%7B%22apiKey%22:%22qUb9maKfKbtpRsdp0p2J7uWxRPGJEP%22,%22source%22:%22o-tracking%22,%22version%22:%221.0.0%22%7D,%22context%22:%7B%22product%22:%22paid-post%22,%22content%22:%7B%22asset_type%22:%22page%22%7D%7D%7D';
+			}
+			stickyOnScroll();
+			window.attention.init();
+			scrollDepthInit('paid-post', { selector: '#content'});
 		}
-		s.parentNode.insertBefore(o, s);
-	}
+	}, 20);
 	
-	// The mustard is NOT cut
-	else {
-		// Add fallback if browsers don't cut the mustard -->
-		const img = new Image();
-		img.src = 'https://spoor-api.ft.com/px.gif?data=%7B%22category%22:%22page%22,%20%22action%22:%22view%22,%20%22system%22:%7B%22apiKey%22:%22qUb9maKfKbtpRsdp0p2J7uWxRPGJEP%22,%22source%22:%22o-tracking%22,%22version%22:%221.0.0%22%7D,%22context%22:%7B%22product%22:%22paid-post%22,%22content%22:%7B%22asset_type%22:%22page%22%7D%7D%7D';
-	}
-}("https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-viewport@^3.1.6,o-grid@^4.3.3,o-header@^7.0.4,o-footer@^6.0.2,o-typography@^5.1.1,o-colors@^4.1.1,o-tooltip@^2.2.3,o-tracking,o-buttons"));
-
-
-// Initialise Events
-const ATTENTION_INTERVAL = 15000;
-const ATTENTION_EVENTS = ['load', 'click', 'focus', 'scroll', 'mousemove', 'touchstart', 'touchend', 'touchcancel', 'touchleave'];
-const UNATTENTION_EVENTS = ['blur'];
-const EXIT_EVENTS = ['beforeunload', 'unload', 'pagehide'];
-const attention = new Attention();
-
-const intervalId = setInterval(function() {
-	if(window.Origami) {
+	const timeoutId = setTimeout(function() {
 		clearInterval(intervalId);
-		clearTimeout(timeoutId);
-		attention.init();
-		scrollDepthInit('paid-post', { selector: '#content'});
-	}
-}, 20);
+	}, 5000);
+}
 
-const timeoutId = setTimeout(function() {
-	clearInterval(intervalId);
-}, 1000)
+// Webpack exposes these on a window.ft global object for use by the page
+module.exports = {
+	init
+}
