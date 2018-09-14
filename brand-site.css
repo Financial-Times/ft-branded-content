@@ -1,0 +1,108 @@
+* {
+	box-sizing: border-box;
+}
+
+/* Hide any enhanced experience content when in core mode, and vice versa. */
+.core .o--if-js,
+.enhanced .o--if-no-js { display: none !important; }
+
+body, html {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #FFF1E0;
+}
+
+.o-header__drawer,
+.o-header {
+	font-family: MetricWeb,sans-serif;
+	font-size: 18px;
+}
+
+.o-header__top-logo {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.o-footer {
+	font-family: MetricWeb,sans-serif;
+	font-size: 12px;
+}
+
+.disclaimer__box {
+	position: absolute;
+	top: 0;
+	display: block;
+	padding: 10px;
+	background-color: white;
+	font-family: MetricWeb, sans-serif;
+	font-size: 13px;
+	border: 1px solid #DADADA;
+	cursor: pointer;
+	z-index: 98;
+}
+
+.disclaimer__box.sticky {
+	position: fixed;
+	top: 0;
+}
+
+
+.disclaimer.disclaimer--fixed {
+	position: fixed;
+	top: 10px;
+}
+
+.disclaimer__paid-post {
+	background-color: #008040;
+	color: white;
+	display: inline-block;
+	font-size: 12px;
+	line-height: normal;
+	padding: 0.2em 0.6em;
+	vertical-align: -1px;
+}
+
+.disclaimer__sponsor {
+	font-weight: 600;
+}
+
+.disclaimer__info {
+	position: relative;
+	display: inline-block;
+	margin-left: 10px;
+	padding: 0 6px;
+	border: 2px solid #CCC;
+	border-radius: 20px;
+	color: #CCC;
+	font-size: 13px;
+	text-decoration: none;
+	line-height: 14px;
+}
+
+.disclaimer .o-tooltip-content {
+	font-family: MetricWeb, sans-serif;
+	margin-right: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.disclaimer .o-tooltip-content p {
+	font-size: 16px;
+}
+
+.o-tooltip--arrow-above.sticky {
+	position: fixed;
+	top: 52px !important;
+}
+
+.o-tooltip--arrow-left.sticky {
+	position: fixed;
+	top: 4px !important;
+}
+/* This is needed for the scroll depth event to work properly */
+#content {
+	position: relative !important;
+}
