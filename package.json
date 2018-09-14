@@ -1,0 +1,19 @@
+{
+	"name": "ft-brand-template",
+	"version": "0.0.0",
+	"main": "",
+	"scripts": {},
+	"engines": {
+		"node": "^8.0.0"
+	},
+	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-loader": "^7.1.5",
+		"babel-preset-env": "^1.7.0",
+		"css-loader": "^1.0.0",
+		"style-loader": "^0.23.0",
+		"webpack": "^4.19.0",
+		"webpack-cli": "^3.1.0"
+	},
+	"dependencies": {}
+}
