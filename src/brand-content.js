@@ -1,6 +1,6 @@
 'use strict'
 
-// require('./brand-content.css');
+require('./brand-content.css');
 
 // Initialise Events
 var ATTENTION_INTERVAL = 15000;

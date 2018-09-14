@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-    "mode": "development",
+    "mode": "production",
     "entry": { "brand-content": "./src/brand-content.js" },
     "output": {
         path: __dirname+'/dist',
