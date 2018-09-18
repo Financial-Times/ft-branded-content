@@ -84,9 +84,9 @@ Good for you. It's not the most sophisticated setup. To get up and running:
 2. `npm install`
 3. `npm run demo`
 
-You'll have the template running locally. To make any changes to the js or css, you'll have to replace the _ft.com_ urls with local ones for `dist/brand-site.css` and `dist/brand-site.js`. `webpack` will build the js and css into the `dest/` folder and since I told you it's not sophisticated, you'll have to do this every time you change some js. Which hopefully shouldn't be that often.
+You'll have the template running locally. To make any changes to the js or css, you'll have to replace the _ft.com_ urls with local ones for `dist/brand-site.css` and `dist/brand-site.js`. Running `webpack` in a terminal will build the js and css into the `dest/` folder and since I told you it's not sophisticated, you'll have to do this every time you change the files. Which hopefully shouldn't be that often.
 
-Once you're happy with the changes, log into AWS, find the `ft-next-assets-prod` bucket and upload the files in your local `dist/` folder to the `paid-post` folder in this bucket. **Note: make sure to give them read access**
+Once you're happy with the changes, log into AWS, find the `ft-next-assets-prod` bucket and upload the files in your local `dist/` folder to the `paid-post` folder in this bucket. **Note: make sure to give them public read access**
 
 Go back to your local copy of `index.html`. Change the css and js links back to point to `https://www.ft.com/__assets/creatives/paid-post/branded-content.css (and .js)`. Commit and go have a beer.
 
