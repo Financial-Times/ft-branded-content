@@ -48,9 +48,7 @@ To find out more about these and Origami in general, here's the [Origami site](h
 ### 5. Pixels
 
 The following pixels or tags are included:
- - Facebook
  - Twitter
- - Krux
 
 ## Sounds cool, how do I use this thing?
 
@@ -78,7 +76,7 @@ All Origami component are loaded on the `window.Origami` global object.
 
 ## I want to make some changes to the template
 
-Good for you. It's not the most sophisticated setup. To get up and running:
+Great! It's not a very sophisticated setup. Try this:
 
 1. Clone the repo
 2. `npm install`
