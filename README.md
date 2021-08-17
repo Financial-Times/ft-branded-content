@@ -54,7 +54,7 @@ The following pixels or tags are included:
 
 ### Replace content
 
-All you need is the [index.html](https://raw.githubusercontent.com/Financial-Times/ft-header-footer/master/index.html) file from this repository. Download it and open it up in an editor.
+All you need is the [index.html](https://raw.githubusercontent.com/Financial-Times/ft-header-footer/main/index.html) file from this repository. Download it and open it up in an editor.
 
 Everything that needs replacing is of the format `[[REPLACE ME]]`. Use the search function in your editor (CTRL (or CMD) + F) to search and replace the following options:
 
