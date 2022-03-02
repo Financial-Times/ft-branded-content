@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "demo": "http-server",
+    "build": "webpack",
     "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
   },
   "engines": {
