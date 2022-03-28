@@ -7,7 +7,7 @@
     "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
   },
   "engines": {
-    "node": ">=16",
+    "node": ">=14",
     "npm": ">=7"
   },
   "devDependencies": {
