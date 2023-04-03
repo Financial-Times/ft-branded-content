@@ -1,3 +1,7 @@
+# Notice
+
+$\colorbox{red}{{\color{white}{Deprecated}}}$ - This template is no longer in use. If you need any support, please contact the Ads & Privacy team
+
 # FT Brand Site Template
 This is a template for use by any developers at the FT and third parties creating branded FT content.
 
@@ -10,7 +14,7 @@ You know it.
 ### 2. Paid Post tooltip
 
 This is configured as follows:
-- On page load, it shows for 5 seconds, then closes automatically if the user hasn't dismissed it already. 
+- On page load, it shows for 5 seconds, then closes automatically if the user hasn't dismissed it already.
 - If the tooltip is open, it will close once the user starts scrolling
 - The white "Paid post by Sponsor" box will remain stuck to the top of the screen as the user scrolls down
 
@@ -72,7 +76,7 @@ If the component you need only requires javascript, open `index.html` in an edit
 
 If you're component also requires css, then search for `css?modules` and do the same.
 
-All Origami component are loaded on the `window.Origami` global object. 
+All Origami component are loaded on the `window.Origami` global object.
 
 ## I want to make some changes to the template
 
